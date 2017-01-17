@@ -1,13 +1,10 @@
 package com.agota.esat.domain;
 
-import com.agota.esat.config.Constants;
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Pattern;
-import javax.validation.constraints.Size;
 import java.io.Serializable;
 
 /**
@@ -23,7 +20,7 @@ public class Worksheet extends AbstractAuditingEntity implements Serializable {
     private Long id;
 
     @NotNull
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     private User user;
 
     @Column(name = "day")

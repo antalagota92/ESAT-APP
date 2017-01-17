@@ -27,7 +27,7 @@ spring:
         url: jdbc:mysql://localhost:3306/ESAT_APP?useUnicode=true&characterEncoding=utf8&useSSL=false
         name:
         username: root
-        password: Kutyagumi92*
+        password: root
         hikari:
             data-source-properties:
                 cachePrepStmts: true

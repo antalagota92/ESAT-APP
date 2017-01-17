@@ -39,6 +39,6 @@ angular.module('esatAppApp')
 
 
         $scope.clear = function () {
-            $scope.updateDM = {userId: null, day: null, startHour: null, endHour: null, id: null};
+            $scope.worksheet = {userId: null, day: null, startHour: null, endHour: null, id: null};
         };
     });

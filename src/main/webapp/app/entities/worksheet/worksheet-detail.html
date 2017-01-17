@@ -1,6 +1,6 @@
 
 <div class="page">
-    <h2><span translate="buddyguardcloudApp.updateDM.detail.title">UpdateDM</span> {{updateDM.id}}</h2>
+    <h2><span>Worksheet</span> {{worksheet.id}}</h2>
     <div class="table-responsive">
         <table class="table table-striped">
             <thead>
@@ -12,45 +12,37 @@
             <tbody>
             <tr>
                 <td>
-                    <span translate="buddyguardcloudApp.updateDM.updateType">UpdateType</span>
+                    <span>UserId</span>
                 </td>
                 <td>
-                    <span class="form-control-static" translate="{{'buddyguardcloudApp.updateType.' + updateDM.updateType}}">{{updateDM.updateType}}</span>
+                    <span class="form-control-static">{{worksheet.userId}}</span>
                 </td>
             </tr>
             <tr>
                 <td>
-                    <span translate="buddyguardcloudApp.updateDM.version">Version</span>
+                    <span>Day</span>
                 </td>
                 <td>
-                    <span class="form-control-static">{{updateDM.version}}</span>
+                    <span class="form-control-static">{{worksheet.day}}</span>
                 </td>
             </tr>
             <tr>
                 <td>
-                    <span translate="buddyguardcloudApp.updateDM.checksum">Checksum</span>
+                    <span>UserId</span>
                 </td>
                 <td>
-                    <span class="form-control-static">{{updateDM.checksum}}</span>
+                    <span class="form-control-static">{{worksheet.startHour}}</span>
                 </td>
             </tr>
             <tr>
                 <td>
-                    <span translate="buddyguardcloudApp.updateDM.encryptionKey">EncryptionKey</span>
+                    <span>Day</span>
                 </td>
                 <td>
-                    <span class="form-control-static">{{updateDM.encryptionKey}}</span>
+                    <span class="form-control-static">{{worksheet.endHour}}</span>
                 </td>
             </tr>
-            <tr>
-                <td>
-                    <span translate="buddyguardcloudApp.updateDM.signature">Signature</span>
-                </td>
-                <td>
-                    <span class="form-control-static">{{updateDM.signature}}</span>
-                </td>
-            </tr>
-            </tbody>
+           </tbody>
         </table>
     </div>
 

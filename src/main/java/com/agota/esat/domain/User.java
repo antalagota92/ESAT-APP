@@ -13,6 +13,7 @@ import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 import java.io.Serializable;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Locale;
 import java.util.Set;
 import java.time.ZonedDateTime;
@@ -76,6 +77,10 @@ public class User extends AbstractAuditingEntity implements Serializable {
     @Column(name = "reset_date", nullable = true)
     private ZonedDateTime resetDate = null;
 
+    @OneToMany(mappedBy = "user", fetch = FetchType.LAZY, cascade = CascadeType.REMOVE)
+    @Column(name = "worksheets")
+    private List<Worksheet> worksheets;
+
     @JsonIgnore
     @ManyToMany
     @JoinTable(
@@ -89,6 +94,14 @@ public class User extends AbstractAuditingEntity implements Serializable {
     @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true, mappedBy = "user")
     @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
     private Set<PersistentToken> persistentTokens = new HashSet<>();
+
+    public List<Worksheet> getWorksheets() {
+        return worksheets;
+    }
+
+    public void setWorksheets(List<Worksheet> worksheets) {
+        this.worksheets = worksheets;
+    }
 
     public Long getId() {
         return id;
