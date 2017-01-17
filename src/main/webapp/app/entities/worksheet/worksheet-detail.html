@@ -1,0 +1,62 @@
+
+<div class="page">
+    <h2><span translate="buddyguardcloudApp.updateDM.detail.title">UpdateDM</span> {{updateDM.id}}</h2>
+    <div class="table-responsive">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th translate="entity.detail.field">Field</th>
+                <th translate="entity.detail.value">Value</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>
+                    <span translate="buddyguardcloudApp.updateDM.updateType">UpdateType</span>
+                </td>
+                <td>
+                    <span class="form-control-static" translate="{{'buddyguardcloudApp.updateType.' + updateDM.updateType}}">{{updateDM.updateType}}</span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span translate="buddyguardcloudApp.updateDM.version">Version</span>
+                </td>
+                <td>
+                    <span class="form-control-static">{{updateDM.version}}</span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span translate="buddyguardcloudApp.updateDM.checksum">Checksum</span>
+                </td>
+                <td>
+                    <span class="form-control-static">{{updateDM.checksum}}</span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span translate="buddyguardcloudApp.updateDM.encryptionKey">EncryptionKey</span>
+                </td>
+                <td>
+                    <span class="form-control-static">{{updateDM.encryptionKey}}</span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span translate="buddyguardcloudApp.updateDM.signature">Signature</span>
+                </td>
+                <td>
+                    <span class="form-control-static">{{updateDM.signature}}</span>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <button type="submit"
+            onclick="window.history.back()"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span translate="entity.action.back"> Back</span>
+    </button>
+</div>

@@ -1,0 +1,103 @@
+<form name="editForm" role="form" novalidate ng-submit="save()" show-validation>
+
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                ng-click="clear()">&times;</button>
+        <h4 class="modal-title" id="myUpdateDMLabel" translate="buddyguardcloudApp.updateDM.home.createOrEditLabel">Create or edit a UpdateDM</h4>
+    </div>
+    <div class="modal-body">
+        <jh-alert-error></jh-alert-error>
+        <div class="form-group">
+            <label for="id" translate="global.field.id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                   ng-model="updateDM.id" readonly>
+        </div>
+        <div class="form-group">
+            <label translate="buddyguardcloudApp.updateDM.updateType" for="field_updateType">UpdateType</label>
+            <select class="form-control" name="updateType" ng-model="updateDM.updateType" id="field_updateType" required>
+                <option value="FIRMWARE_MAIN" translate="buddyguardcloudApp.updateType.FIRMWARE_MAIN">FIRMWARE_MAIN</option>
+                <option value="FIRMWARE_MAIN_AND_WATCHDOG" translate="buddyguardcloudApp.updateType.FIRMWARE_MAIN_AND_WATCHDOG">FIRMWARE_MAIN_AND_WATCHDOG</option>
+                <option value="FIRMWARE_WATCHDOG" translate="buddyguardcloudApp.updateType.FIRMWARE_WATCHDOG">FIRMWARE_WATCHDOG</option>
+                <option value="FIRMWARE_OS" translate="buddyguardcloudApp.updateType.FIRMWARE_OS">FIRMWARE_OS</option>
+                <option value="MACHINE_LEARNING" translate="buddyguardcloudApp.updateType.MACHINE_LEARNING">MACHINE_LEARNING</option>
+                <option value="MOBILE_IOS" translate="buddyguardcloudApp.updateType.MOBILE_IOS">MOBILE_IOS</option>
+                <option value="MOBILE_ANDROID" translate="buddyguardcloudApp.updateType.MOBILE_ANDROID">MOBILE_ANDROID</option>
+            </select>
+            <div ng-show="editForm.actionType.$invalid">
+                <p class="help-block"
+                   ng-show="editForm.actionType.$error.required" translate="entity.validation.required">
+                    This field is required.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label translate="buddyguardcloudApp.updateDM.version" for="field_version">Version</label>
+            <input type="text" class="form-control" name="version" id="field_version"
+                   ng-model="updateDM.version"
+                   required>
+            <div ng-show="editForm.name.$invalid">
+                <p class="help-block"
+                   ng-show="editForm.name.$error.required" translate="entity.validation.required">
+                    This field is required.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label translate="buddyguardcloudApp.updateDM.encryptionKey" for="field_encryptionKey">EncryptionKey</label>
+            <input type="text" class="form-control" name="encryptionKey" id="field_encryptionKey"
+                   ng-model="updateDM.encryptionKey"
+                   required>
+            <div ng-show="editForm.name.$invalid">
+                <p class="help-block"
+                   ng-show="editForm.name.$error.required" translate="entity.validation.required">
+                    This field is required.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label translate="buddyguardcloudApp.updateDM.signature" for="field_signature">Signature</label>
+            <input type="text" class="form-control" name="encryptionKey" id="field_signature"
+                   ng-model="updateDM.signature"
+                   required>
+            <div ng-show="editForm.name.$invalid">
+                <p class="help-block"
+                   ng-show="editForm.name.$error.required" translate="entity.validation.required">
+                    This field is required.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label translate="buddyguardcloudApp.updateDM.containerId" for="field_containerId">ContainerId</label>
+            <input type="text" class="form-control" name="containerId" id="field_containerId"
+                   ng-model="containerId"
+                   required>
+            <div ng-show="editForm.name.$invalid">
+                <p class="help-block"
+                   ng-show="editForm.name.$error.required" translate="entity.validation.required">
+                    This field is required.
+                </p>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label translate="buddyguardcloudApp.updateDM.updateContent" for="field_updateContent">UpdateContent</label>
+            <input type="file" name="updateContent" id="field_updateContent" ngf-select="selectFile($file, $invalidFiles)" accept="*/zip"
+                   required>
+            <div ng-show="editForm.name.$invalid">
+                <p class="help-block"
+                   ng-show="editForm.name.$error.required" translate="entity.validation.required">
+                    This field is required.
+                </p>
+            </div>
+        </div>
+
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="clear()">
+            <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span translate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" ng-disabled="editForm.$invalid || editForm.$submitted || !canSave" class="btn btn-primary">
+            <span class="glyphicon glyphicon-save"></span>&nbsp;<span translate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>
