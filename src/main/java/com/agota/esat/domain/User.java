@@ -77,10 +77,6 @@ public class User extends AbstractAuditingEntity implements Serializable {
     @Column(name = "reset_date", nullable = true)
     private ZonedDateTime resetDate = null;
 
-    @OneToMany(mappedBy = "user", fetch = FetchType.LAZY, cascade = CascadeType.REMOVE)
-    @Column(name = "worksheets")
-    private List<Worksheet> worksheets;
-
     @JsonIgnore
     @ManyToMany
     @JoinTable(
@@ -94,14 +90,6 @@ public class User extends AbstractAuditingEntity implements Serializable {
     @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true, mappedBy = "user")
     @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
     private Set<PersistentToken> persistentTokens = new HashSet<>();
-
-    public List<Worksheet> getWorksheets() {
-        return worksheets;
-    }
-
-    public void setWorksheets(List<Worksheet> worksheets) {
-        this.worksheets = worksheets;
-    }
 
     public Long getId() {
         return id;
@@ -209,20 +197,41 @@ public class User extends AbstractAuditingEntity implements Serializable {
     }
 
     @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+    public boolean equals(Object object) {
+        if (this == object)
+            return true;
+        if (object == null || getClass() != object.getClass())
+            return false;
+        if (!super.equals(object))
+            return false;
 
-        User user = (User) o;
+        User user = (User) object;
 
-        if (!id.equals(user.id)) return false;
-        return login.equals(user.login);
+        if (id != null ? !id.equals(user.id) : user.id != null)
+            return false;
+        if (login != null ? !login.equals(user.login) : user.login != null)
+            return false;
+        if (password != null ? !password.equals(user.password) : user.password != null)
+            return false;
+        if (firstName != null ? !firstName.equals(user.firstName) : user.firstName != null)
+            return false;
+        if (lastName != null ? !lastName.equals(user.lastName) : user.lastName != null)
+            return false;
+        if (email != null ? !email.equals(user.email) : user.email != null)
+            return false;
+
+        return true;
     }
 
     @Override
     public int hashCode() {
-        int result = id.hashCode();
-        result = 31 * result + login.hashCode();
+        int result = super.hashCode();
+        result = 31 * result + (id != null ? id.hashCode() : 0);
+        result = 31 * result + (login != null ? login.hashCode() : 0);
+        result = 31 * result + (password != null ? password.hashCode() : 0);
+        result = 31 * result + (firstName != null ? firstName.hashCode() : 0);
+        result = 31 * result + (lastName != null ? lastName.hashCode() : 0);
+        result = 31 * result + (email != null ? email.hashCode() : 0);
         return result;
     }
 
